@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infograma Capítulo 7 - Philip Kotler</title>
+    <style>
+        :root {
+            --color-primary: #4285F4; /* Google blue */
+            --color-secondary: #34A853; /* Google green */
+            --color-accent: #EA4335; /* Google yellow */
+            --color-bg: #ffff;
+            --color-text: #333;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--color-text);
+            margin: 0;
+            font-size: 2.5rem;
+            line-height: 1em;
+        }
+
+        .infogram-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .infocard {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px rgba(0,0,0,.1);
+            transition: transform 0.3s ease-out;
+        }
+
+        .infocard:hover {
+            transform: translateY(-5px);
+        }
+
+        .infocard h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 12px solid var(--color-secondary);
+        }
+
+        .collapse-btn {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            margin: 10px 0;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .collapse-btn:hover {
+            background-color: darken-5%;
+        }
+
+        .collapse-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding: 0;
+        }
+
+        .collapse-content p {
+            margin: 10px 0;
+        }
+
+        .action-btn {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--color-primary);
+            transform: scale(1.05);
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .infogram-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Resumen Capítulo 7 - Philip Kotler</h1>
+        <p>Estrategias de Marketing y Posicionamiento</p>
+    </header>
+
+    <div class="infogram-container">
+        <!-- Card 1 -->
+        <div class="infocard">
+            <h3>Segmentación de Mercado</h3>
+            <button class="collapse-btn">Ver detalles ▼</button>
+            <div class="collapse-content">
+                <p>Consiste en dividir el mercado en grupos de compradores con diferentes necesidades, características o comportamientos.</p>
+                
+                <div class="image-container">
+                    <img src="segmentacion.png" alt="Segmentación de mercado" style="max-width:100%; border-radius:6px;">
+                </div>
+                
+                <button class="action-btn" onclick="showInfo('segmentacion')">Tipos de Segmentación</button>
+                <button class="action-btn" onclick="showInfo('segmentacion-bases')">Bases para Segmentar</button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="infocard">
+            <h3>Posicionamiento</h3>
+            <button class="collapse-btn">Ver detalles ▼</button>
+            <div class="collapse-content">
+                <p>Estrategia para diseñar la imagen y la oferta de la empresa para que ocupe un lugar destacado en la mente del mercado meta.</p>
+                
+                <div class="image-container">
+                    <img src="posicionamiento.png" alt="Posicionamiento" style="max-width:100%; border-radius:6px;">
+                </div>
+                
+                <button class="action-btn" onclick="showInfo('posicionamiento-tipos')">Tipos de Posicionamiento</button>
+                <button class="action-btn" onclick="showInfo('posicionamiento-ventajas')">Ventajas Competitivas</button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="infocard">
+            <h3>Diferenciación</h3>
+            <button class="collapse-btn">Ver detalles ▼</button>
+            <div class="collapse-content">
+                <p>Proceso de distinguir la oferta de la empresa para crear valor superior para el cliente meta.</p>
+                
+                <div class="image-container">
+                    <img src="diferenciacion.png" alt="Diferenciación" style="max-width:100%; border-radius:6px;">
+                </div>
+                
+                <button class="action-btn" onclick="showInfo('diferenciacion-elementos')">Elementos clave</button>
+                <button class="action-btn" onclick="showInfo('diferenciacion-ejemplos')">Ejemplos prácticos</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="info-display" style="background-color: white; padding: 20px; border-radius: 10px; margin-top: 30px; display: none;">
+        <h2 id="info-title"></h2>
+        <div id="info-content"></div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>Cuestionario</h2>
+        
+        <div class="quiz-question">
+            <p>¿Qué es la segmentación de mercado?</p>
+            <button class="quizbutton correct">Dividir el el mercado en grupos con necesidades similares</button>
+            <button class="quizbutton incorrect">Estrategia para para ahorrar costos de distribución</button>
+            <button class="quizbutton incorrect">Un método de publicidad estadística</button>
+            <button class="quizbutton incorrect">Ninguna de las anteriores</button>
+        </div>
+        
+        <div class="quiz-question">
+            <p>¿Cuál es el objetivo objetivo principal de la diferenciación?</p>
+            <button class="quizbutton correct">Crear un valor único para el cliente</button>
+            <button class="quizbutton incorrect">Reducir precios al máximo</button>
+            <button class="quizbutton incorrect">Copiar estrategias de competidores</button>
+            <button class="quizbutton incorrect">Aumentar la producción masiva</button>
+        </div>
+        
+        <div class="quiz-question">
+            <p>¿En qué se basa el posicionamiento efectivo?</p>
+            <button class="quizbutton correct">En la percepción del consumidor</button>
+            <button class="quizbutton incorrect">Solo en la disponibilidad física</button>
+            <button class="quizbutton incorrect">Exclusivamente en el precio</button>
+        </div>
+        
+        <div class="quiz-question" id="segment-types">
+            <p>Selecciona los tipos de segmentación de mercado (en orden):</p>
+            <button class="quizbutton seq-step" data-step="1">Demográfica</button>
+            <button class="quizbutton seq-step" data-step="2">Geográfica</button>
+            <button class="quizbutton seq-step" data-step="3">Psicográfica</button>
+            <button class="quizbutton seq-step" data-step="4">Conductual</button>
+        </div>
+        
+        <div class="quiz-question" id="steps-segment">
+            <p>Ordena los pasos para segmentar el mercado:</p>
+            <button class="quizbutton seq-step" data-step="1">Identificar bases de segmentación</button>
+            <button class="quizbutton seq-step" data-step="2">Desarrollar perfiles segmento</button>
+            <button class="quizbutton seq-step" data-step="3">Medir atractivo segmento</button>
+            <button class="quizbutton seq-step" data-step="4">Seleccionar mercados meta</button>
+        </div>
+        
+        <div class="quiz-question">
+            <p>¿Cuál NO es una P del marketing mix?</p>
+            <button class="quizbutton correct">Personas</button>
+            <button class="quizbutton incorrect">Producto</button>
+            <button class="quizbutton incorrect">Precio</button>
+            <button class="quizbutton incorrect">Promoción</button>
+        </div>
+        
+        <div class="quiz-question">
+            <p>El marketing operativo se enfoca en:</p>
+            <button class="quizbutton correct">Acciones a corto plazo</button>
+            <button class="quizbutton incorrect">Planificación estratégica</button>
+            <button class="quizbutton incorrect">Definición de visión</button>
+            <button class="quizbutton incorrect">Análisis de mercado a 3 años</button>
+        </div>
+        
+        <div class="quiz-question">
+            <p>¿Cuál es un KPI clave en marketing?</p>
+            <button class="quizbutton correct">Tasa de conversión</button>
+            <button class="quizbutton incorrect">Color del logo</button>
+            <button class="quizbutton incorrect">Número de empleados</button>
+            <button class="quizbutton incorrect">Tamaño de oficina</button>
+        </div>
+    </div>
+
+    <script>
+        // Collapse functionality
+        document.querySelectorAll('.collapse-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.style.maxHeight = content.style.maxHeight 
+                    ? null 
+                    : content.scrollHeight + 'px';
+                    
+                button.textContent = button.textContent.includes('▼') 
+                    ? button.textContent.replace('▼', '▲') 
+                    : button.textContent.replace('▲', '▼');
+            });
+        });
+
+        // Info display functionality
+        function showInfo(topic) {
+            const infoDisplay = document.getElementById('info-display');
+            const infoTitle = document.getElementById('info-title');
+            const infoContent = document.getElementById('info-content');
+            
+            infoDisplay.style.display = 'block';
+            
+            switch(topic) {
+                case 'segmentacion':
+                    infoTitle.textContent = 'Tipos de Segmentación';
+                    infoContent.innerHTML = `
+                        <p><strong>Segmentación geográfica:</strong> Basada en regiones, ciudades o áreas geográficas.</p>
+                        <p><strong>Segmentación demográfica:</strong> Edad, género, ingresos, educación, etc.</p>
+                        <p><strong>Segmentación psicográfica:</strong> Estilo de vida, personalidad, valores.</p>
+                        <p><strong>Segmentación conductual:</strong> Actitudes hacia el producto, tasas de uso, lealtad.</p>
+                    `;
+                    break;
+                    
+                case 'segmentacion-bases':
+                    infoTitle.textContent = 'Bases para Segmentar el Mercado';
+                    infoContent.innerHTML = `
+                        <p>1. Necesidad de los clientes</p>
+                        <p>2. Tamaño y potencial del segmento</p>
+                        <p>3. Accesibilidad al segmento</p>
+                        <p>4. Capacidad de respuesta del segmento</p>
+                        <p>5. Sostenibilidad del segmento</p>
+                    `;
+                    break;
+                    
+                case 'posicionamiento-tipos':
+                    infoTitle.textContent = 'Tipos de Posicionamiento';
+                    infoContent.innerHTML = `
+                        <p><strong>Basado en atributos:</strong> Características o beneficios clave del producto.</p>
+                        <p><strong>Basado en competencia:</strong> Comparación directa con competidores.</p>
+                        <p><strong>Basado en uso:</strong> Situaciones de uso o aplicación.</p>
+                        <p><strong>Basado en usuario:</strong> Tipo de consumidor objetivo.</p>
+                        <p><strong>Basado en precio/calidad:</strong> Relación entre valor y coste.</p>
+                    `;
+                    break;
+                    
+                case 'posicionamiento-ventajas':
+                    infoTitle.textContent = 'Ventajas Competitivas';
+                    infoContent.innerHTML = `
+                        <p>1. <strong>Diferenciación de producto:</strong> Diseño, características, rendimiento</p>
+                        <p>2. <strong>Diferenciación de servicio:</strong> Entrega, instalación, atención al cliente</p>
+                        <p>3. <strong>Diferenciación de personal:</strong> Habilidad, conocimiento, amabilidad</p>
+                        <p>4. <strong>Diferenciación de imagen:</strong> Símbolos, atmósfera, eventos</p>
+                    `;
+                    break;
+                    
+                case 'diferenciacion-elementos':
+                    infoTitle.textContent = 'Elementos Clave de Diferenciación';
+                    infoContent.innerHTML = `
+                        <p>• <strong>Producto:</strong> Forma, características, rendimiento</p>
+                        <p>• <strong>Servicios:</strong> Logística, instalación, capacitación</p>
+                        <p>• <strong>Personal:</strong> Habilidad, conocimiento, atención</p>
+                        <p>• <strong>Canal:</strong> Acceso, cobertura, experiencia</p>
+                        <p>• <strong>Imagen:</strong> Símbolos, medios, atmósfera</p>
+                    `;
+                    break;
+                    
+                case 'diferenciacion-ejemplos':
+                    infoTitle.textContent = 'Ejemplos Prácticos de Diferenciación';
+                    infoContent.innerHTML = `
+                        <p><strong>Apple:</strong> Innovación y diseño premium</p>
+                        <p><strong>Amazon:</strong> Experiencia del cliente y logística rápida</p>
+                        <p><strong>Nike:</strong> Inspiración y asociación con atletas</p>
+                        <p><strong>Coca-Cola:</strong> Emociones asociadas y experiencia global</p>
+                    `;
+                    break;
+                    
+                default:
+                    infoTitle.textContent = 'Información no disponible';
+                    infoContent.textContent = 'Estamos trabajando para agregar más información sobre este tema.';
+            }
+            
+            // Scroll to the info display
+            infoDisplay.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add event listeners to quiz buttons
+        document.querySelectorAll('.quizbutton').forEach(button => {
+            button.addEventListener('click', function() {
+                checkAnswer(this);
+            });
+        });
+
+        // Function for sequence questions
+        let currentSeqStep = 1;
+        function handleSequenceQuestion(button) {
+            const expectedStep = parseInt(button.dataset.step);
+            
+            if(expectedStep === currentSeqStep) {
+                button.style.backgroundColor = 'var(--color-secondary)';
+                button.style.color = 'white';
+                currentSeqStep++;
+                
+                if(currentSeqStep > document.querySelectorAll('.seq-step').length / 2) {
+                    setTimeout(() => {
+                        alert('¡Secuencia completada correctamente!');
+                        resetSequenceQuestions();
+                    }, 300);
+                }
+            } else {
+                button.style.backgroundColor = 'var(--color-accent)';
+                resetSequenceQuestions();
+                alert('Error en la secuencia. ¡Vuelve a intentarlo desde el principio!');
+            }
+        }
+        
+        function resetSequenceQuestions() {
+            currentSeqStep = 1;
+            document.querySelectorAll('.seq-step').forEach(btn => {
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+            });
+        }
+
+        // Check answer function
+        function checkAnswer(button) {
+            if(button.classList.contains('correct')) {
+                button.style.backgroundColor = 'var(--color-secondary)';
+                button.style.color = 'white';
+                alert('¡Respuesta correcta!');
+            } else if(button.classList.contains('seq-step')) {
+                handleSequenceQuestion(button);
+            } else {
+                button.style.backgroundColor = 'var(--color-accent)';
+                button.style.color = 'white';
+                alert('Incorrecto. ¡Intenta nuevamente!');
+            }
+        }
+    </script>
+</body>
+</html>
